@@ -97,13 +97,13 @@ RUN set -xe \
 # --enable-mbstring is included here because otherwise there's no way to get pecl to use it properly (see https://github.com/docker-library/php/issues/195)
 		--enable-mbstring \
 # --enable-mysqlnd is included here because it's harder to compile after the fact than extensions are (since it's a plugin for several extensions, not an extension in itself)
-		--enable-mysqlnd \
+		#--enable-mysqlnd \
 		\
 		--with-curl \
 		--with-libedit \
 		--with-openssl \
 		--with-zlib \
-		--with-mysqli
+		--with-mysqli \
 		\
 		$PHP_EXTRA_CONFIGURE_ARGS \
 	&& make -j "$(nproc)" \
