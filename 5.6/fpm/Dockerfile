@@ -6,6 +6,11 @@
 
 FROM debian:jessie
 
+
+ENV MONGO_VERSION 2.2.7
+ENV MONGO_PGP 2.2
+ENV MONGO_PHP_VERSION 1.5.5
+
 # persistent / runtime deps
 ENV PHPIZE_DEPS \
 		autoconf \
