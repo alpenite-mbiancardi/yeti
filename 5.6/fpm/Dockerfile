@@ -155,6 +155,15 @@ RUN set -ex \
 		echo '[www]'; \
 		echo 'listen = [::]:9000'; \
 	} | tee php-fpm.d/zz-docker.conf
+RUN curl -SL "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$MONGO_VERSION.tgz" -o mongo.tgz \
+  && curl -SL "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$MONGO_VERSION.tgz.sig" -o mongo.tgz.sig \
+  && curl -SL "https://www.mongodb.org/static/pgp/server-$MONGO_PGP.asc" -o server-$MONGO_PGP.asc \
+  && gpg --import server-$MONGO_PGP.asc \
+  && gpg --verify mongo.tgz.sig \
+  && tar -xvf mongo.tgz -C /usr/local --strip-components=1 \
+  && rm mongo.tgz*
+
+RUN pecl install mongo-$MONGO_PHP_VERSION
 
 EXPOSE 9000
 CMD ["php-fpm"]
