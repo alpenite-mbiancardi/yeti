@@ -107,6 +107,7 @@ RUN set -xe \
 		\
 		--with-curl \
 		--with-libedit \
+		--with-mysqli \
 		--with-openssl \
 		--with-zlib \
 		 --with-pdo-mysql  \
