@@ -23,7 +23,7 @@ ENV PHPIZE_DEPS \
 		re2c
 RUN apt-get update && apt-get install -y \
 		$PHPIZE_DEPS \
-		openssl \
+		#openssl \
 		postfix \
 		ca-certificates \
 		curl \
@@ -113,7 +113,7 @@ RUN set -xe \
 		--with-openssl \
 		--with-zlib \
 		 --with-pdo-mysql \
-		 --with-imap-ssl=/etc/ssl/ \
+		 #--with-imap-ssl=/etc/ssl/ \
 		 --with-imap=/etc/postfix/ \
 		\
 		$PHP_EXTRA_CONFIGURE_ARGS \
