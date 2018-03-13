@@ -110,7 +110,8 @@ RUN set -xe \
 		--with-mysqli \
 		--with-openssl \
 		--with-zlib \
-		 --with-pdo-mysql  \
+		 --with-pdo-mysql \
+		 --with-imap \
 		\
 		$PHP_EXTRA_CONFIGURE_ARGS \
 	&& make -j "$(nproc)" \
