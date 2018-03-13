@@ -24,6 +24,7 @@ ENV PHPIZE_DEPS \
 RUN apt-get update && apt-get install -y \
 		$PHPIZE_DEPS \
 		openssl \
+		postfix \
 		ca-certificates \
 		curl \
 		libedit2 \
@@ -113,6 +114,7 @@ RUN set -xe \
 		--with-zlib \
 		 --with-pdo-mysql \
 		 --with-imap-ssl=/etc/ssl/ \
+		 --with-imap=/etc/postfix/ \
 		\
 		$PHP_EXTRA_CONFIGURE_ARGS \
 	&& make -j "$(nproc)" \
